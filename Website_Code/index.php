@@ -7,13 +7,15 @@
     // 目的是明确指定files文件夹的位置，避免相对路径可能出现的解析不一致问题，确保后续能正确访问其中的文件和文件夹
     $filesFolder = 'files';
     $Web_title = "文件下载站";
+    $host = $_SERVER['HTTP_HOST'];
+    $http_r = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
     // 判断files文件夹是否存在，如果存在则获取其目录内容，并设置页面标题
     if (is_dir($filesFolder)) {
         $contents = scandir($filesFolder);
         echo '<title>'. $Web_title. '</title>';
     }
     ?>
-    <link rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -52,17 +54,18 @@
         }
     }
 }
-
+$host = $_SERVER['HTTP_HOST'];
+$http_r = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http";
 foreach ($contents as $item) {
     if ($item!= '.' && $item!= '..') {
         $fullPath = rtrim($folderPath, '/'). '/'. $item;
         if (is_file($fullPath)) {
             $fileExtension = pathinfo($fullPath, PATHINFO_EXTENSION);
-            if ($fileExtension == 'html' or $fileExtension == 'txt') {
+            if ($fileExtension == 'html' or 'txt' or 'png') {
                 // 这里不再直接设置响应头和执行下载操作，而是将下载相关逻辑放到链接点击的处理中
-                echo '<li class="file_box"><span>'. htmlspecialchars($item). '</span><a href="download.php?file='. urlencode($fullPath). '" style="color:#383838; "><i class="fa fa-download" download></i></a></li>';
+                echo '<li class="file_box"><a href ="show_file.php?file='. htmlspecialchars($item). '" " style="color:#383838; text-decoration: none;"><i class="bi bi-filetype-'. $fileExtension. '"></i>  '. htmlspecialchars($item). '</a><a href="download.php?file='. urlencode($fullPath). '" style="color:#383838; "><i class="bi bi-download"></i></a></li>';
             } else {
-                echo '<li class="file_box"><span>'. htmlspecialchars($item). '</span><a href="'. $fullPath. '" style="color:#383838; "><i class="fa fa-download" download></i></a></li>';
+                echo '<li class="file_box"><a href ="show_file.php?file='. htmlspecialchars($item). '" " style="color:#383838; text-decoration: none;"><i class="bi bi-filetype-'. $fileExtension. '"></i>  '. htmlspecialchars($item). '</a><a href="'. $fullPath. '" style="color:#383838; "><i class="bi bi-download"></i></a></li>';
             }
         }
     }
