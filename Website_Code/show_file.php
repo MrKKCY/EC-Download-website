@@ -39,7 +39,6 @@ if (isset($_GET['file'])) {
         case 'png':
             // 对于png图片文件，设置对应的图片类型的Content-Type响应头，然后输出文件内容展示图片
             include('templates/image_display.php'); // 引入图片文件展示的模板文件
-            echo 
             break;
         case 'jpg':
         case 'jpeg':
