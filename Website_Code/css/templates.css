@@ -1,0 +1,104 @@
+/* 通用样式设置 */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.cbodys {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f4f4f4;
+    display: grid;
+    place-items: center; /* 水平和垂直居中 */
+    min-height: 100vh; /* 确保 body 至少占满整个视口高度 */
+}
+
+
+/* 文本容器样式 */
+.text-container {
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+.back_button{
+    position: fixed; /* 使用固定定位 */
+    left: 15px; /* 距离左侧 15px */
+    bottom: 15px; /* 距离底部 15px */
+    width: 60px; /* 设置宽度 */
+    height: 60px; /* 设置高度，与宽度相等 */
+    background-color: rgb(255, 255, 255); /* 设置背景颜色 */
+    border-radius: 50%; /* 将边角半径设置为50%，产生圆形 */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* 添加阴影效果 */
+    display: flex; /* 使用flex布局 */
+    align-items: center; /* 垂直居中 */
+    justify-content: center; /* 水平居中 */
+    text-decoration: none; /* 去除下划线 */
+    transition: width 0.3s ease, height 0.3s ease; /* 添加过渡效果 */
+}   
+
+.back_button:hover{
+    width: 80px; /* 设置宽度 */
+    height: 80px;
+}
+
+a:link,
+a:visited {
+    color: black; /* 未访问和已访问的链接颜色设置为黑色 */
+    text-decoration: none; /* 去除下划线 */
+}
+
+a:hover {
+    color: black; /* 鼠标悬停时链接颜色保持黑色 */
+    text-decoration: underline; /* 鼠标悬停时显示下划线 */
+}
+
+a:active {
+    color: black; /* 激活状态下链接颜色保持黑色 */
+}
+
+/* 视频容器样式 */
+.video-container {
+    margin: 20px auto;
+    width: 80%;
+    max-width: 800px;
+}
+
+/* 图片容器样式 */
+.image-container {
+    margin: 20px 0 0 0;
+    width: 60%;
+    height: 84%;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+}
+
+.image-container img{
+    border-radius: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    border-radius: 35px;
+    border: none;
+    width:150px;
+    height: 75px;
+    font-size: 25px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
